@@ -1,0 +1,128 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+<div class="card mt-3 text-end">
+    <h5 class="card-header"> حساب السائق  </h5>
+    <input class="d-none" value="0" type="number" hidden name="Id" id="Id">
+
+
+    <div class="card-body p-0 py-3">
+
+
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="Date" class="my-2"> التاريخ   </label>
+                <input type="date" class="form-control" name="Date" id="Date">
+            </div>
+
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="DriverId" class="my-2">اسم السائق</label>
+                <select class="form-select text-center" name="DriverId" id="DriverId">
+                    <option value="0"> -- كل السائقين -- </option>
+                </select>
+            </div>
+
+
+        </div>
+
+        <div class="text-center my-3">
+
+            <button id="Send" class="btn btn-primary mt-3 px-5"> بحث </button>
+
+        </div>
+
+
+        <div class="col-12 d-flex justify-content-center align-items-center flex-wrap px-3">
+
+            <div class="col-4 text-center">
+                <p>اجمال المصاريف</p>
+                <input class="form-control bg-transparent border-0 text-center" disabled type="number" name="" id="TotaExpenses">
+            </div>
+
+            <div class="col-4 text-center">
+                <p>اجمالي الايرادات</p>
+                <input class="form-control bg-transparent border-0 text-center" disabled type="number" name="" id="TotaRevenue">
+
+            </div>
+
+            <div class="col-4 text-center">
+                <p> الفرق بينهم</p>
+                <input class="form-control bg-transparent border-0 text-center" disabled type="number" name="" id="Net">
+
+            </div>
+
+        </div>
+
+        <div class="col-12 text-center d-flex justify-content-center flex-wrap">
+
+            <div class="col-12 col-md-4 p-3">
+                <label for="Amount" class="my-2"> محاسبة السائق </label>
+                <input id="Amount" class="form-control text-center" type="number" name="Amount">
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <label for="DriverAmountDate" class="my-2"> تمت في  </label>
+                <input class="form-control text-center" type="date" name="DriverAmountDate" id="DriverAmountDate">
+            </div>
+
+            <div class="col-12">
+                <button id="saveBtn" class="btn btn-success px-5" type="submit">دفع </button>
+                <button id="deleteBtn" class="btn btn-danger px-4 Dnone" type="submit">حذف </button>
+                <button id="cancleBtn" class="btn btn-secondary px-4 Dnone" type="submit">الغاء </button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+<div class="table-responsive mt-4">
+    <table class="table table-striped table-hover table-light text-center" id="ExpensesTable">
+        <thead>
+            <tr>
+                <th class="col-2">#</th>
+                <th class="col-2"> تاريخ المصروف  </th>
+                <th class="col-2"> اسم المصروف  </th>
+                <th class="col-2"> قيمة المصروف </th>
+            </tr>
+        </thead>
+        <tbody class="text-center"></tbody>
+
+    </table>
+</div>
+
+<div class="table-responsive mt-4">
+    <table class="table table-striped table-hover table-light text-center" id="RevenueTable">
+        <thead>
+            <tr>
+                <th class="col-2">#</th>
+                <th class="col-2"> تاريخ الايراد  </th>
+                <th class="col-2"> اسم الايراد </th>
+                <th class="col-2"> قيمة الايراد </th>
+            </tr>
+        </thead>
+            <tbody class="text-center"></tbody>
+
+    </table>
+</div>
+
+
+
+
+
+@section Scripts {
+    <script src="~/js/DriverExpenses.js" asp-append-version="true"></script>
+}

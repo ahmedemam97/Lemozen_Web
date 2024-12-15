@@ -1,0 +1,89 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+
+<input class="d-none" value="0" type="number" hidden name="BookingsId" id="BookingsId">
+
+
+<div class="m-3">
+    <a href="\RevenueTravel" class="btn btn-primary">
+        الطلبات المنتهية
+    </a>
+</div>
+
+<div class="table-responsive mt-4">
+    <table class="table table-striped table-hover table-light text-center" id="mainTable">
+        <thead>
+            <tr>
+                <th class="col-2">#</th>
+                <th class="col-2"> اسم العميل </th>
+                <th class="col-2"> التاريخ </th>
+                <th class="col-1"> من </th>
+                <th class="col-1"> الي </th>
+                <th class="col-2"> نوع الرحلة </th>
+                <th class="col-1">-</th>
+            </tr>
+        </thead>
+        <tbody class="text-center"></tbody>
+
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+                <h1 class="modal-title fs-5 col-12" id="staticBackdropLabel">اتمام الحجز</h1>
+                <button type="button" class="btn-close ms-5 fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <select class="form-select text-center" name="Select" id="Select">
+                        <option selected value="1"> تمت من خلال الشركة </option>
+                        <option value="2"> تمت من خلال شركة اخري </option>
+                        <option value="3"> ملغاه </option>
+                    </select>
+
+                    <div id="DoneOne">
+                        <label for="Amount" class="my-2"> المبلغ </label>
+                        <input type="number" class="form-control text-center" name="Amount" id="Amount">
+                    </div>
+
+                    <div id="DoneTwo">
+                        <label for="OtherCompany" class="my-2"> اسم الشركة </label>
+                        <select class="form-select text-center" name="OtherCompany" id="OtherCompany">
+                            <option selected value="0"> -- اختر الشركة -- </option>
+                        </select>
+                        <label for="Amount" class="my-2"> المبلغ </label>
+                        <input type="number" class="form-control text-center" name="Amount" id="Amount">
+                    </div>
+
+                    <div id="DoneThree">
+                        <label for="Reason" class="my-2"> السبب </label>
+                        <input type="text" class="form-control text-center" name="Reason" id="Reason">
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button id="saveBtn" type="button" class="btn btn-primary">اتمام</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/js/CompleteBookings.js" asp-append-version="true"></script>
+}

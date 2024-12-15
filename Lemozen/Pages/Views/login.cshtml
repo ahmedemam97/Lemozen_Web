@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "تسجل الدخول";
+    Layout = null;
+}
+
+<link href="~/css/datatables.min.css" rel="stylesheet" />
+<link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<body id="htmlBody">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Navbar</a>
+        </div>
+    </nav>
+
+    <section class="min-vh-100 d-flex justify-content-center align-items-center">
+
+        <div class="col-12 col-md-7">
+
+            <div class="p-4 form">
+                <div>
+                    <label class="d-none" for="UserName"></label>
+                    <input placeholder="الايميل" id="UserName" type="email" required class="form-control shadow-none">
+                </div>
+
+                <div class="my-2">
+                    <label class="d-none" for="Password">Password</label>
+                    <input placeholder="الباسورد" id="Password" type="password" required class="form-control shadow-none">
+                </div>
+
+                <div class="my-2 text-center">
+                    <button id="saveBtn" class="btn btn-primary px-4" type="submit">تسجيل</button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/jquery-3.7.0.min.js"></script>
+    <script src="~/lib/jquery-confirm/jquery-confirm.min.js"></script>
+    <script src="~/js/login.js"></script>
+    <script src="~/js/site.js"></script>
+
+</body>
+
+
+
+
+
+
+
+
+
+

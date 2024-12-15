@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Lemozen</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/datatables.min.css" rel="stylesheet" />
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Lemozen.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body id="htmlBody">
+
+    <header>
+       @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand"   asp-page="/Index">Lemozen</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark"   asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark"   asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid px-4 px-md-0">
+                <!-- <a class="navbar-brand" href="#">الرئيسية</a> -->
+                <button class="navbar-toggler me-auto " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class=" navbar-nav me-lg-5 my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/Expenses">المصاريف</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/DailyExpenses">المصاريف اليومية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/DailyRevenue">الايرادات اليومية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/Company"> شركات الليموزين </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/CompanyApp"> شركات التطبيق </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/Driver">السائق </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/DriverExpenses">حساب السائق </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/Client">عملاء </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/City">المدن </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/PrivateTours">رحلات  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/ExpensesSearch"> بحث المصاريف </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/RevenueSearch"> بحث الايرادات </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/Bookings">  الحجوزات </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"   asp-page="/Views/CompleteBookings">  اتمام الحجز </a>
+                        </li>
+                    </ul>
+                    <div class="me-auto">
+
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
+                        @* <button id="logout" class="btn btn-secondary">
+                            <a   asp-page="\Views\login">   تسجيل الخروج     </a>
+
+                        </button> *@
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Accordion Item #2
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <main role="main" class="">
+            @RenderBody()
+        </main>
+
+    <footer class="border-top footer text-muted text-center position-relative">
+        <div class="container">
+            &copy; 2023 - Lemozen - جميع الحقوق محفوظة لدي شركة افاق للبرمجيات 
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/jquery-3.7.0.min.js"></script>
+    <script src="~/lib/datatables/datatables.min.js"></script>
+    <script src="~/lib/jquery-confirm/jquery-confirm.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

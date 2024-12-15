@@ -1,0 +1,144 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+
+<div class="card mt-3 text-end ">
+    <h5 class="card-header"> الحجوزات </h5>
+    <input class="d-none" value="0" type="number" hidden name="Id" id="Id">
+
+    <div class="card-body p-0">
+
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="ClientId" class="my-2">اسم العميل</label>
+                <select class="form-select text-center" name="ClientId" id="ClientId">
+                    <option value="0"> -- اختر العميل  -- </option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="ClientPhone" class="my-2"> الهاتف </label>
+                <input type="text" id="ClientPhone" class="form-control text-center">
+            </div>
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="Date" class="my-2"> تاريخ الرحله </label>
+                <input id="Date" type="datetime-local" class="form-control text-center">
+            </div>
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="AddressFrom" class="my-2"> العنوان من  </label>
+                <input id="AddressFrom" type="text" class="form-control text-center">
+            </div>
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="AddressTo" class="my-2"> العنوان الي  </label>
+                <input id="AddressTo" type="text" class="form-control text-center">
+            </div>
+
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="CityFromId" class="my-2">  المحافظة من</label>
+                <select class="form-select text-center" name="CityFromId" id="CityFromId">
+                    <option value="0"> -- اختر المحافظة  -- </option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="CityToId" class="my-2">  المحافظة الي</label>
+                <select class="form-select text-center" name="CityToId" id="CityToId">
+                    <option value="0"> -- اختر المحافظة  -- </option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="TravelType" class="my-2">  نوع الرحله </label>
+                <select class="form-select text-center" name="TravelType" id="TravelType">
+                    <option value="0"> --  نوع الرحلة  -- </option>
+                    <option value="1"> ذهاب </option>
+                    <option value="2"> ذهاب وعودة </option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-3 px-2">
+                <label for="CompanyId" class="my-2">  شركات الليموزين </label>
+                <select class="form-select text-center" name="CompanyId" id="CompanyId">
+                    <option value="0"> -- اختر الشركة  -- </option>
+                </select>
+            </div>
+
+
+            <div class="col-12 col-md-3 px-2 ">
+                <label for="GoogleFrom" class="my-2"> الذهاب من - خرائط جوجل </label>
+                <input id="GoogleFrom" type="text" class="form-control text-center">
+                <div id="GoogleParentFrom" class="text-center">
+                    <a target="_blank" href="" id="GoogleFromHref">     </a>
+                    <button id="CancleGoogleFrom" class="btn"> الغاء </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-3 px-2 ">
+                <label for="GoogleTo" class="my-2"> الذهاب الي - خرائط جوجل </label>
+                <input id="GoogleTo" type="text" class="form-control text-center">
+                <div id="GoogleParentTo" class="text-center">
+                    <a target="_blank" href="" id="GoogleToHref">     </a>
+                    <button id="CancleGoogleTo" class="btn"> الغاء </button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <div class="text-center my-3">
+        <button id="saveBtn" class="btn btn-primary px-4" type="submit">حفظ </button>
+        <button id="deleteBtn" class="btn btn-danger px-4 Dnone" type="submit">حذف </button>
+        <button id="cancleBtn" class="btn btn-secondary px-4 Dnone" type="submit">الغاء </button>
+    </div>
+
+</div>
+
+<div class="table-responsive mt-4">
+    <table class="table table-striped table-hover table-light text-center" id="mainTable">
+        <thead>
+            <tr>
+                <th class="col-2">#</th>
+                <th class="col-2"> اسم العميل </th>
+                <th class="col-2"> الهاتف </th>
+                <th class="col-2"> التاريخ </th>
+                <th class="col-1"> من </th>
+                <th class="col-1"> الي </th>
+                <th class="col-2"> من مدينة </th>
+                <th class="col-2"> الي مدينة </th>
+                <th class="col-2"> نوع الرحلة </th>
+                <th class="col-2"> اسم الشركة </th>
+                <th class="col-2"> جوجل من </th>
+                <th class="col-2"> جوجل الي </th>
+                <th class="col-1">-</th>
+            </tr>
+        </thead>
+        <tbody class="text-center"></tbody>
+
+    </table>
+</div>
+
+
+
+
+
+@section Scripts {
+    <script src="~/js/Bookings.js" asp-append-version="true"></script>
+}
+

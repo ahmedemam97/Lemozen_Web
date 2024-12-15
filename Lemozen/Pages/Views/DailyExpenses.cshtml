@@ -1,0 +1,249 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+<div class="card mt-3 text-end">
+
+    <h5 class="card-header">مصاريف يومية</h5>
+    <input class="d-none" value="0" type="number" hidden name="Id" id="Id">
+
+    <div class="card-body p-0">
+
+        <div class="d-flex justify-content-center align-items-end flex-wrap">
+
+            <div class="col-12 col-md-3 my-3">
+                <input type="date" class="form-control text-center" name="Date" id="Date">
+            </div>
+
+            <!-- مصروف يومي -->
+            <div class="col-12 my-4">
+
+                <table class="table table-striped table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>المصروف اليومي</th>
+                            <th>مبلغ المصروف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ExpensesDayTable">
+                        <tr rowIndex="1">
+                            <td>
+                                <div>
+                                    <button id="AddRowDay1" rowIndex="1" class="btn btn-success fs-5 py-1 px-3 mx-2 AddRowDay">+</button>
+                                    <button id="RemoveRowDay1" rowIndex="1" class="btn btn-danger fs-5 py-1 px-3 mx-2 RemoveRowDay">-</button>
+                                </div>
+                            </td>
+                            <td>
+                                <select name="ExpensesDay1" rowIndex="1" id="ExpensesDay1" class="form-select ExpensesDaySelect text-center">
+                                    <option value="0"> --  اختر المصروف --</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input rowIndex="1" id="AmountDay1" type="number" class="form-control text-center AmountDay">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="1">
+                            </td>
+                            <td>
+                                اجمالي المصروفات اليومية
+                            </td>
+                            <td>
+                                <input class="form-control text-center bg-transparent border-0" disabled type="number" name="TotalExpensesDay" id="TotalExpensesDay">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+            </div>
+            <!-- مصروف يومي -->
+            <!-- مصروف شهري -->
+            <div class="col-12 my-3">
+
+                <table class="table table-striped table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>المصروف الشهري</th>
+                            <th>مبلغ المصروف </th>
+                        </tr>
+                    </thead>
+                    <tbody id="ExpensesMonthTable">
+                        <tr rowMonthIndex="1">
+                            <td>
+                                <div>
+                                    <button id="AddRowMonth1" rowMonthIndex="1" class="btn btn-success fs-5 py-1 px-3 mx-2 AddRowMonth">+</button>
+                                    <button id="RemoveRowMonth1" rowMonthIndex="1" class="btn btn-danger fs-5 py-1 px-3 mx-2 RemoveRowMonth">-</button>
+                                </div>
+                            </td>
+                            <td>
+                                <select name="ExpensesMonth" rowMonthIndex="1" id="ExpensesMonth1" class="form-select ExpensesMonthSelect text-center">
+                                    <option value="0"> --  اختر المصروف --</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input rowMonthIndex="1" id="AmountMonth1" type="number" class="form-control text-center AmountMonth">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="1">
+                            </td>
+                            <td>
+                                اجمالي المصروفات الشهرية / 30
+                            </td>
+                            <td>
+                                <input class="form-control text-center bg-transparent border-0" disabled type="number" name="TotalExpensesMonth" id="TotalExpensesMonth">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+            </div>
+            <!-- مصروف شهري -->
+            <!-- مصروف شركة -->
+            <div class="col-12 my-3">
+
+                <table class="table table-striped table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>مصروف الشركة</th>
+                            <th>مبلغ المصروف </th>
+                        </tr>
+                    </thead>
+                    <tbody id="ExpensesCompanyTable">
+                        <tr rowCompanyIndex="1">
+                            <td>
+                                <div>
+                                    <button id="AddRowCompany1" rowCompanyIndex="1" class="btn btn-success fs-5 py-1 px-3 mx-2 AddRowCompany">+</button>
+                                    <button id="RemoveRowCompany1" rowCompanyIndex="1" class="btn btn-danger fs-5 py-1 px-3 mx-2 RemoveRowCompany">-</button>
+                                </div>
+                            </td>
+                            <td>
+                                <select name="ExpensesCompany" rowCompanyIndex="1" id="ExpensesCompany1" class="form-select ExpensesCompanySelect text-center">
+                                    <option value="0"> --  اختر المصروف --</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input rowCompanyIndex="1" id="AmountCompany1" type="number" class="form-control text-center AmountCompany">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="1">
+                            </td>
+                            <td>
+                                اجمالي مصروف الشركة
+                            </td>
+                            <td>
+                                <input class="form-control text-center bg-transparent border-0" disabled type="number" name="TotalExpensesCompany" id="TotalExpensesCompany">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+            </div>
+            <!-- مصروف شركة -->
+            <!-- مصروف تطبيق -->
+            <div class="col-12 my-3">
+
+                <table class="table table-striped table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>مصروف التطبيق</th>
+                            <th>مبلغ المصروف </th>
+                        </tr>
+                    </thead>
+                    <tbody id="ExpensesAppTable">
+                        <tr rowAppIndex="1">
+                            <td>
+                                <div>
+                                    <button id="AddRowApp1" rowAppIndex="1" class="btn btn-success fs-5 py-1 px-3 mx-2 AddRowApp">+</button>
+                                    <button id="RemoveRowApp1" rowAppIndex="1" class="btn btn-danger fs-5 py-1 px-3 mx-2 RemoveRowApp">-</button>
+                                </div>
+                            </td>
+                            <td>
+                                <select name="ExpensesApp" rowAppIndex="1" id="ExpensesApp1" class="form-select ExpensesAppSelect text-center">
+                                    <option value="0"> --  اختر المصروف --</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input rowAppIndex="1" id="AmountApp1" type="number" class="form-control text-center AmountApp">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="1">
+                            </td>
+                            <td>
+                                اجمالي مصروف الشركة
+                            </td>
+                            <td>
+                                <input class="form-control text-center bg-transparent border-0" disabled type="number" name="TotalExpensesApp" id="TotalExpensesApp">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+            </div>
+            <!-- مصروف تطبيق -->
+
+
+
+
+
+
+            <div class="col-12 my-3 text-center">
+                <label for="Total" class="my-2 fs-4 fw-bold">اجمالي المصاريف اليومية</label>
+                <input class="form-control bg-transparent text-center" value="0" disabled type="number" name="Total" id="Total">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="text-center mt-3">
+
+    <button id="saveBtn" class="btn btn-primary px-4" type="submit">حفظ </button>
+    <button id="deleteBtn" class="btn btn-danger px-4 Dnone" type="submit">حذف </button>
+    <button id="cancleBtn" class="btn btn-secondary px-4 Dnone" type="submit">الغاء </button>
+</div>
+
+<div class="table-responsive mt-4">
+    <table class="table table-striped table-hover table-light text-center" id="mainTable">
+        <thead>
+            <tr>
+                <th class="col-2">#</th>
+                <th class="col-2"> التاريخ </th>
+                <th class="col-2"> اجمالي المصاريف  </th>
+                <th class="col-2">-</th>
+            </tr>
+        </thead>
+        <tbody class="text-center"></tbody>
+
+    </table>
+</div>
+
+
+
+
+@section Scripts {
+    <script src="~/js/DailyExpenses.js" asp-append-version="true"></script>
+}
